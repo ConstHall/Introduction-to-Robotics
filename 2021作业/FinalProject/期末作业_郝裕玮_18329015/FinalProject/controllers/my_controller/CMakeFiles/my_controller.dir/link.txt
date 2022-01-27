@@ -1,0 +1,3 @@
+"C:\Program Files\cmake\bin\cmake.exe" -E rm -f CMakeFiles\my_controller.dir/objects.a
+C:\PROGRA~1\MinGw\bin\ar.exe cr CMakeFiles\my_controller.dir/objects.a @CMakeFiles\my_controller.dir\objects1.rsp
+C:\PROGRA~1\MINGW-~1\X86_64~1.0-W\mingw64\bin\G__~1.EXE -Wl,--whole-archive CMakeFiles\my_controller.dir/objects.a -Wl,--no-whole-archive -o my_controller.exe -Wl,--out-implib,libmy_controller.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\my_controller.dir\linklibs.rsp

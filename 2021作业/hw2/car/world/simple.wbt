@@ -1,0 +1,184 @@
+#VRML_SIM R2021b utf8
+WorldInfo {
+  title "simple"
+  contactProperties [
+    ContactProperties {
+      material1 "InteriorWheelMat"
+      coulombFriction [
+        1.8, 0, 0.2
+      ]
+      frictionRotation -0.965 0
+      forceDependentSlip [
+        10, 0
+      ]
+    }
+    ContactProperties {
+      material1 "ExteriorWheelMat"
+      coulombFriction [
+        1.8, 0, 0.2
+      ]
+      frictionRotation 0.965 0
+      forceDependentSlip [
+        10, 0
+      ]
+    }
+  ]
+}
+Viewpoint {
+  orientation 0.32186935117668924 -0.3509821466425705 -0.8793245439035977 1.7843453539511576
+  position -2.5492209483665893 0.007248922277468563 3.590150187025181
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+CircleArena {
+  rotation 1 0 0 1.57
+  radius 3
+}
+Robot {
+  translation 0 0 0.06
+  children [
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 1 0
+        anchor 0.1 -0.15 0
+      }
+      device [
+        DEF motor1 RotationalMotor {
+          name "motor1"
+        }
+      ]
+      endPoint Solid {
+        translation 0.09997878728594951 -0.15004016643478824 -6.310226699097762e-05
+        rotation -3.32512047032389e-05 -0.9999999994471498 -2.401227065511864e-07 0.015862576732231962
+        children [
+          DEF wheel Shape {
+            appearance Appearance {
+              material Material {
+              }
+            }
+            geometry Cylinder {
+              height 0.05
+              radius 0.06
+            }
+          }
+        ]
+        contactMaterial "InteriorWheelMat"
+        boundingObject USE wheel
+        physics Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 1 0
+        anchor 0.1 -0.15 0
+      }
+      device [
+        DEF motor1 RotationalMotor {
+          name "motor2"
+        }
+      ]
+      endPoint Solid {
+        translation 0.09999061430341019 0.15001113218079984 2.8825259517666813e-05
+        rotation 0.0031741235793292483 -0.999994489065234 0.0009730255211813382 0.0026505554077297633
+        children [
+          DEF wheel Shape {
+            appearance Appearance {
+              material Material {
+              }
+            }
+            geometry Cylinder {
+              height 0.05
+              radius 0.06
+            }
+          }
+        ]
+        name "solid(1)"
+        contactMaterial "ExteriorWheelMat"
+        boundingObject USE wheel
+        physics Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 1 0
+        anchor -0.1 0.15 0
+      }
+      device [
+        DEF motor1 RotationalMotor {
+          name "motor3"
+        }
+      ]
+      endPoint Solid {
+        translation -0.09999680625158255 0.15001109591649495 2.7374109358432326e-05
+        rotation 0.00018958013823184016 -0.999999982029578 4.6351489368225805e-07 0.0026505448590272563
+        children [
+          DEF wheel Shape {
+            appearance Appearance {
+              material Material {
+              }
+            }
+            geometry Cylinder {
+              height 0.05
+              radius 0.06
+            }
+          }
+        ]
+        name "solid(2)"
+        contactMaterial "InteriorWheelMat"
+        boundingObject USE wheel
+        physics Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 1 0
+        anchor -0.1 -0.15 0
+      }
+      device [
+        DEF motor1 RotationalMotor {
+          name "motor4"
+        }
+      ]
+      endPoint Solid {
+        translation -0.09999683967377375 -0.15001116710686088 2.6347607548634625e-05
+        rotation -0.00019093080054130633 -0.9999999817726889 -2.2693615364826112e-07 0.002650544089151279
+        children [
+          DEF wheel Shape {
+            appearance Appearance {
+              material Material {
+              }
+            }
+            geometry Cylinder {
+              height 0.05
+              radius 0.06
+            }
+          }
+        ]
+        name "solid(3)"
+        contactMaterial "ExteriorWheelMat"
+        boundingObject USE wheel
+        physics Physics {
+        }
+      }
+    }
+    DEF Body Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 0.647059 0.764706 0.8
+        }
+      }
+      geometry Box {
+        size 0.3 0.2 0.07
+      }
+    }
+  ]
+  boundingObject USE Body
+  physics Physics {
+  }
+  controller "main"
+}
